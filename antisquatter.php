@@ -15,9 +15,9 @@ $mysql_table = 'table'; //Default table set by game plugin. Do not change this i
 
 $anti_squatter_pass = "pass"; //Used to access antisquatter.php
 
-$mysql_table_id = 'id';
-$mysql_table_score = 'score';
-$mysql_table_lastconnect = 'lastconnect';
+$mysql_column_id = 'id';
+$mysql_column_score = 'score';
+$mysql_column_lastconnect = 'lastconnect';
 
 $antisquatter_rate_loss = 25; //Rate loss constant. A higher value equals a higher rate loss per day of inactivity.
 $start_score = 1800; //Starting score of new players
@@ -45,16 +45,16 @@ ini_set('max_execution_time', 300);
 $changes = 0;
 
 if ($passphrase == $anti_squatter_pass) {
-	$run_query = "SELECT $mysql_table_id, $mysql_table_score, $mysql_table_lastconnect, TRUNCATE((unix_timestamp(NOW()) - $mysql_table_lastconnect) / $decay_days, 0) AS elapsedtime_days FROM $mysql_table WHERE $mysql_table_score != $start_score AND $mysql_table_lastconnect > 0 AND (unix_timestamp(NOW()) - $mysql_table_lastconnect) > $decay_days";
+	$run_query = "SELECT $mysql_column_id, $mysql_column_score, $mysql_column_lastconnect, TRUNCATE((unix_timestamp(NOW()) - $mysql_column_lastconnect) / $decay_days, 0) AS elapsedtime_days FROM $mysql_table WHERE $mysql_column_score != $start_score AND $mysql_column_lastconnect > 0 AND (unix_timestamp(NOW()) - $mysql_column_lastconnect) > $decay_days";
 	$query = mysqli_query($connect, $run_query);
 
 	mysqli_autocommit($connect, false);
 
 
 	while ($row = mysqli_fetch_assoc($query)) {
-		$id = $row[$mysql_table_id];
-		$score = $row[$mysql_table_score];
-		$lastconnect = $row[$mysql_table_lastconnect];
+		$id = $row[$mysql_column_id];
+		$score = $row[$mysql_column_score];
+		$lastconnect = $row[$mysql_column_lastconnect];
 		$elapsedtime_days = $row['elapsedtime_days'];
 
 		$rating_loss = $antisquatter_rate_loss * $elapsedtime_days * ($score - $start_score) / $score;
@@ -67,7 +67,7 @@ if ($passphrase == $anti_squatter_pass) {
 			$score_new = number_format((float)$score - ($rating_loss / $reverse_decay), 2, '.', '');
 		}
 
-		mysqli_query($connect, "UPDATE $mysql_table SET $mysql_table_score='$score_new' WHERE $mysql_table_id='$id'");
+		mysqli_query($connect, "UPDATE $mysql_table SET $mysql_column_score='$score_new' WHERE $mysql_column_id='$id'");
 		$changes++;
 	}
 
