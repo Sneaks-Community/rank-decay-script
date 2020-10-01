@@ -1,9 +1,9 @@
 <?php
 /**
  * =============================================================================
- * @author Clayton
- * @version 1.3.6
- * @link https://github.com/supimfuzzy/csgo-multi-1v1
+ * @author Clayton, sneaK
+ * @version 2.0
+ * @link https://github.com/supimfuzzy/csgo-multi-1v1 https://github.com/Sneaks-Community/rank-decay-script
  * =============================================================================
  */
 
