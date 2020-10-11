@@ -1,9 +1,7 @@
 # About
-Rank decay script for ELO-based ranking plugins. Works out of the box with [Multi-1v1 Arenas](https://github.com/splewis/csgo-multi-1v1) and [RankMe](https://github.com/rogeraabbccdd/Kento-Rankme).
+Rank decay script for ELO-based SourceMod ranking plugins. Plenty of available customization, and works out of the box with [Multi-1v1 Arenas](https://github.com/splewis/csgo-multi-1v1) and [RankMe](https://github.com/rogeraabbccdd/Kento-Rankme).
 
 This originated from: https://github.com/supimfuzzy/csgo-multi-1v1
-
-Plenty of available customization for your standard SourceMod-based plugin ranking system (rankme, multi-1v1, etc).
 
 # Instructions
 1. Clone the repo to desired folder `git clone https://github.com/Sneaks-Community/rank-decay-script.git .`
