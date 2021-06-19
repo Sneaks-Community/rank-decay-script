@@ -24,7 +24,7 @@ $start_score = 1800; //Starting score of new players
 $decay_start = 5; //Time in days until point decay should occur
 $reset_days = 30; //Time in days when a player gets reset back to the default score, required if implementing into an existing DB with very old stale players to prevent anomalies (sanity check)
 $reverse_decay = 2; //Divisor at which reverse decay should happen (1 is equal to decay rate, 0.5 would be twice the speed as decay rate, 2 would be half the speed of decay)
-$log_antisquatter = true; //Keep IP logs and the number of player stats changes. For debugging and testing purposes only.
+$log_antisquatter = false; //Keep IP logs and the number of player stats changes. For debugging and testing purposes only.
 
 $connect = mysqli_connect($mysql_host,$mysql_user,$mysql_pass) or die('Cannot connect to server.');
 $connect->set_charset('utf8mb4');
