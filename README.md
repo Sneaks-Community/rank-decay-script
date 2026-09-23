@@ -13,5 +13,5 @@ This originated from: https://github.com/supimfuzzy/csgo-multi-1v1
 - Configurable column names
 - Configurable start score
 - Configurable decay start time
-- Added reverse decay with configurable multiplier
+- Added reverse decay
 - Ability to reset players back to default rating/score
