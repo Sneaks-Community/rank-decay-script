@@ -35,7 +35,7 @@ if ($passphrase == $anti_squatter_pass) {
 		$lastconnect = $row[$mysql_column_lastconnect];
 		$elapsedtime_days = $row['elapsedtime_days'];
 		
-		if ($elapsedtime_days > $reset_days)
+		if (time() - $lastconnect > $reset_days * 86400)
 		{
 			$result = mysqli_query($connect, "UPDATE $mysql_table SET $mysql_column_score='$start_score' WHERE $mysql_column_id='$id'");
 			if (!$result) {
