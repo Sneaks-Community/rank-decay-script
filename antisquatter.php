@@ -39,7 +39,7 @@ if ($passphrase == $anti_squatter_pass) {
 		{
 			$result = mysqli_query($connect, "UPDATE $mysql_table SET $mysql_column_score='$start_score' WHERE $mysql_column_id='$id'");
 			if (!$result) {
-				file_put_contents("antisquatter.log", "DBERROR: . mysqli_error($connect) . \n", FILE_APPEND);
+				file_put_contents("antisquatter.log", "DBERROR: ".mysqli_error($connect)."\n", FILE_APPEND);
 			}
 			$reset++;
 		}
