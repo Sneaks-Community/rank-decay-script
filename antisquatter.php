@@ -23,7 +23,7 @@ ini_set('max_execution_time', 300);
 $reset = 0;
 $changes = 0;
 
-if ($passphrase == $anti_squatter_pass) {
+if ($passphrase === $anti_squatter_pass) {
 	$run_query = "SELECT $mysql_column_id, $mysql_column_score, $mysql_column_lastconnect, TRUNCATE((unix_timestamp(NOW()) - $mysql_column_lastconnect) / $decay_days, 0) AS elapsedtime_days FROM $mysql_table WHERE $mysql_column_score != $start_score AND $mysql_column_lastconnect > 0 AND (unix_timestamp(NOW()) - $mysql_column_lastconnect) > $decay_days";
 	$query = mysqli_query($connect, $run_query);
 	
