@@ -45,14 +45,13 @@ if ($passphrase == $anti_squatter_pass) {
 		}
 		else
 		{
-			$rating_loss = $antisquatter_rate_loss * $elapsedtime_days * ($score - $start_score) / $score;
-			$rating_gain = $antisquatter_rate_loss * $elapsedtime_days * ($start_score - $score) / (2 * $start_score - $score);
-			
 			if ($score > $start_score)
 			{
+				$rating_loss = $antisquatter_rate_loss * $elapsedtime_days * ($score - $start_score) / $score;
 				$score_new = number_format((float)$score - $rating_loss, 2, '.', '');
 			}
 			else{
+				$rating_gain = $antisquatter_rate_loss * $elapsedtime_days * ($start_score - $score) / (2 * $start_score - $score);
 				$score_new = number_format((float)$score + $rating_gain, 2, '.', '');
 			}
 
